@@ -1,0 +1,73 @@
+
+<html>
+<head>
+<title>English page</title>
+<link rel="stylesheet" href="../../static/styles/english browse.css" > 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<style>
+    .image-upload > input {
+        visibility:hidden;
+        width:0;
+        height:0
+        
+    }
+
+
+</style>
+
+</head>
+<body>
+
+<p><h1 align="center" id="titi">Places Recognition Project</h1></p>
+<div class="container">
+<div class="row">
+    <h2 align="center">Select an image to upload</h2>
+	<p><h3>{{ describe_name }}</h3></p>
+	<p><h3>{{ descrip }}</h3></p>
+    <p>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul>
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+    </p>
+    {% if filename %}
+        <div>
+            <img style="width:100%; height:auto;" src="{{ url_for('display_image', filename=filename) }}">
+        </div>
+    {% endif %}
+    <form method="post" action="{{ url_for('english') }}" enctype="multipart/form-data">
+        <dl>
+            <p>
+            <div style="text-align: center;" class="image-upload">
+                <label for="file-inputt"><img style="width:10%;"src="../../static/images/camera-icon-21.png"/></label>
+                <input type="file" id="file-inputt" name="file"  autocomplete="off" required />
+            </div>
+            </p>
+        </dl>
+        <p>
+            <center><input id="TextButtons" type="submit" value="Recognition" class="btn btn-info"></center>
+        </p>
+    </form>
+	<!-- <center><a href="{{ url_for('home') }}"><button id="TextButtons">Change language</button></a><center>-->
+        <br />
+        <br />
+</div>
+</div>
+<br />
+<br />
+<footer >
+    <a href="{{ url_for('english_settings') }}"><button id="menubutton">
+        <img src="../../static/images/MenuIcon.png" width="20" height="16" href="Homepage.html">
+    </button></a>
+    <a href="{{ url_for('home') }}"><button id="homebutton">
+        <img src="../../static/images/HomeIcon.png" width="20" height="16" href="Settingpage.html">
+    </button></a>
+</footer>
+
+</body>
+</html>
