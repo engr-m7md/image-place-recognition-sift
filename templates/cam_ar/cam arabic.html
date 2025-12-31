@@ -1,0 +1,55 @@
+
+<html>
+<head>
+<title>الصفحة العربية</title>
+<link rel="stylesheet" href="../../static/styles/cam ar.css"  />        
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+</head>
+<body>
+<p><h1 align="center" id="titi">التعرف على المعالم عبر الكاميرا</h1></p>
+<div class="container" style="text-align: right;">
+<div class="row">
+    <h2>التقط صورة</h2>
+	<p><h3> الاسم : {{ describe_name }}  </h3></p>
+	<p><h3> الوصف : {{ descrip }}  </h3></p>
+    <p>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul>
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+    </p>
+    {% if filename %}
+        <div>
+            <img style="width:100%; height:auto;" src="{{ url_for('display_image', filename=filename) }}">
+        </div>
+    {% endif %}
+    <form method="post" action="{{ url_for('camera_arabic') }}" enctype="multipart/form-data">
+        <dl>
+            <p>
+                <input type="file" name="file" class="form-control" autocomplete="off" accept="image/*" capture required>
+            </p>
+        </dl>
+        <p>
+            <center><input id="TextButtons" type="submit" value="تعرف" class="btn btn-info"></center>
+        </p>
+    </form>
+	<center><a href="{{ url_for('home') }}"><button id="TextButtons" >تغيير اللغة</button></a></center>
+</div>
+</div>
+<br />
+<br />
+<footer>
+    <a href="{{url_for('arabic_settings')}}"><button id="menubutton">
+        <img src="../../static/images/MenuIcon.png" width="20" height="16" >
+    </button></a>
+    <a href="{{url_for('home')}}"><button id="homebutton">
+        <img src="../../static/images/HomeIcon.png" width="20" height="16" >
+    </button></a>
+</footer>
+</body>
+</html>

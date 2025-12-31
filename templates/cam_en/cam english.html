@@ -1,0 +1,55 @@
+
+<html>
+<head>
+<title>English page</title>
+<link rel="stylesheet" href="../../static/styles/cam english.css" />        
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+</head>
+<body>
+<p><h1 align="center" id="titi">Camera Places Recognition</h1></p>
+<div class="container">
+<div class="row">
+    <h2>Take Snap with Camera</h2>
+	<p><h3>Name : {{ describe_name }}</h3></p>
+	<p><h3>descripter : {{ descrip }}</h3></p>
+    <p>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul>
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+    </p>
+    {% if filename %}
+        <div>
+            <img style="width:100%; height:auto;" src="{{ url_for('display_image', filename=filename) }}">
+        </div>
+    {% endif %}
+    <form method="post" action="{{ url_for('camera_english') }}" enctype="multipart/form-data">
+        <dl>
+            <p>
+                <input type="file" name="file" class="form-control" autocomplete="off" accept="image/*" capture required>
+            </p>
+        </dl>
+        <p>
+            <center><input id="TextButtons" type="submit" value="Reocgnition" class="btn btn-info"></center>
+        </p>
+    </form>
+	<center><a href="{{ url_for('home') }}"><button id="TextButtons">Change language</button></a><center>
+</div>
+</div>
+<br />
+<br />
+<footer>
+    <a href="{{ url_for('english_settings') }}"><button id="menubutton">
+        <img src="../../static/images/MenuIcon.png" width="20" height="16" href="Homepage.html">
+    </button></a>
+    <a href="{{ url_for('home') }}"><button id="homebutton">
+        <img src="../../static/images/HomeIcon.png" width="20" height="16" href="Settingpage.html">
+    </button></a>
+</footer>
+</body>
+</html>

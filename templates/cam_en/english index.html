@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MustalamSetting</title>
+    </head>
+    <body>
+        <script>
+            function getURL() {
+                navigator.clipboard.writeText(window.location.href);
+                alert("URL is copied you can share it with Friends now ^_^ ");
+            }
+        </script>
+
+      <a href="{{url_for('camera_english')}}"><button id="BackButton" href="HomePage.html"><</button></a>
+      <br>
+      <br>
+      <br>
+      <center><h1 id="Heading">Settings</h1></center>
+      <br>
+      <center><img src="../../static/images/Logo.jpg" width="100" height="100"></center>
+      <br>
+      <br>
+      <br>
+      <center><a href="{{url_for('home')}}"><button id="TextButtons" href="LanguagePage.html">Change The Language</button></a></center>
+      <br>
+      <br>
+      <br>
+      <center><a href="{{url_for('english_contact')}}"><button id="TextButtons" href="ContactUsPage.html">Contact us</button></a></center>
+      <br>
+      <br>
+      <br>
+      <center><button id="TextButtons" href="ShareOptions" onclick="getURL();" >Share with Friends</button></center>  
+      <br>
+      <br>
+      <br>
+      <footer>
+        <a href="{{ url_for('english_settings')}}">
+        <button id="menubutton">
+            <img src="../../static/images/MenuIcon.png" width="20" height="16" href="Homepage.html">
+        </button>
+        </a>
+        <a href="{{ url_for('home') }}">
+        <button id="homebutton">
+            <img src="../../static/images/HomeIcon.png" width="20" height="16" href="Settingpage.html">
+        </button></a>     
+    </footer>
+
+    </body>
+    <style>
+
+        #Heading
+        {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        #TextButtons{
+
+            background-color: #FF6347;
+            color: white;
+            padding: 14px 40px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            border-radius: 12px;
+            width:60%;
+            cursor: pointer;
+   
+
+        }
+        #TextButtons:hover{
+            
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+
+        #BackButton{
+            background-color: white;
+            color: gray;
+            border: 0;
+            font-size: 50px;
+            cursor: pointer;
+        }
+        footer {
+            padding: 15px;
+            background-color: tomato;
+            color: white;
+
+        }
+        #menubutton{
+            background-color: tomato;
+            border: none;
+            cursor: pointer;
+        }
+        #homebutton{
+            background-color: #FF6347;
+            border: none;
+            cursor: pointer;
+            padding-left: 370px;
+        }
+    </style>
+</html>

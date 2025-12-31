@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<title>Home Page</title>
+		<link rel="stylesheet" href="../static/styles/home page.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	<body style="margin-left: 0px;">
+	
+		<center><h1>chooes one language</h1><center>
+		<center><h1>اختر اللغة</h1><center>
+		<br />
+		<br />
+		<center><img src="../static/images/Logo.jpg" width="100" height="100"></center>
+		<br />
+		<br />
+
+		<a href="{{ url_for('english') }}"> <button  id="TextButtons">English</button> </a>
+		<br />
+		<br />
+		<a href="{{ url_for('arabic')}}" ><button  id="TextButtons" >العربية </button></a>
+		<br />
+		<br />
+		<!-- 
+			<a href="{{ url_for('english') }}"> <button  id="TextButtons">English</button> </a>
+			<a href="/ar" ><button  id="TextButtons" >العربية </button></a>
+			<a href="/cam_en" ><button id="TextButtons">Camera English</button></a> -->
+		<br />
+		<br />
+		<!-- <a href="/cam_ar" ><button id="TextButtons">الكاميرا العربية</button></a> -->
+
+		<br />
+		<br />
+		<footer>
+			<div style="text-align: center;">
+            <a href=""><button id="menubutton" style="margin-left: -26px;">
+                <img src="../static/images/MenuIcon.png" width="20" height="16" href="Homepage.html">
+            </button></a>
+            <a href=""><button id="menubutton" style="padding-left: 150px;">
+                <img src="../static/images/HomeIcon.png" width="20" height="16" href="Settingpage.html">
+            </button></a>
+		</div>
+        </footer>
+	</body>
+</html>

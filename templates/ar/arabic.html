@@ -1,0 +1,70 @@
+
+<html>
+<head>
+<title>الصفحة العربية</title>
+<link rel="stylesheet" href="../../static/styles/arabic browse.css" />        
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<style>
+    .image-upload > input {
+        visibility:hidden;
+        width:0;
+        height:0
+        
+    }
+
+
+</style>
+</head>
+<body>
+<p><h1 align="center" id="titi">مشروع التعرف على المعالم</h1></p>
+<div class="container" style="text-align: right;">
+<div class="row">
+    <h2 align="center">حدد الصورة للرفعها</h2>
+	<p><h3>  {{ describe_name }}  </h3></p>
+	<p><h3>  {{ descrip }}  </h3></p>
+    <p >
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul>
+            {% for message in messages %}
+              <li style="direction:rtl;">{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+    </p>
+    {% if filename %}
+        <div>
+            <img style="width:100%; height:auto;" src="{{ url_for('display_image', filename=filename) }}">
+        </div>
+    {% endif %}
+    <form method="post" action="{{ url_for('arabic') }}" enctype="multipart/form-data">
+        <dl>
+            <p>
+                <div style="text-align: center;" class="image-upload">
+                <label for="file-inputt"><img style="width:10%;"src="../../static/images/camera-icon-21.png"/></label>
+                <input type="file"  id="file-inputt" name="file" class="form-control" autocomplete="off" required>
+                </div>
+            </p>
+        </dl>
+        <p>
+            <center><input id="TextButtons" type="submit" value="تعرف" class="btn btn-info"></center>
+        </p>
+    </form>
+	<!--<center><a href="{{ url_for('home') }}"><button id="TextButtons" >تغيير اللغة</button></a></center>-->
+</div>
+</div>
+<br />
+<br />
+<footer style="bottom: 0px;
+position: fixed;
+width: 100%;">
+    <a href="{{url_for('arabic_settings')}}"><button id="menubutton">
+        <img src="../../static/images/MenuIcon.png" width="20" height="16" href="Homepage.html">
+    </button></a>
+    <a href="{{url_for('home')}}"><button id="homebutton">
+        <img src="../../static/images/HomeIcon.png" width="20" height="16" href="Settingpage.html">
+    </button></a>
+</footer>
+</body>
+</html>
